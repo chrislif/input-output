@@ -8,7 +8,7 @@ local Object = require "Scripts.scr_obj"
 
 local function startup()
 	print("----- Program Startup -----")
-	
+	print(os.date())
 	print("\n")
 	Object.startup()
 end
