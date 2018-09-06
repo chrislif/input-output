@@ -18,10 +18,7 @@ settings =
 	--
 	android =
 	{
-		usesPermissions =
-		{
-			"android.permission.INTERNET",
-		},
+		versionCode = "1"
 	},
 
 	--
@@ -62,6 +59,7 @@ settings =
 	excludeFiles =
 	{
 		-- Exclude unnecessary files for each platform
+		all = { "*.bak"},
 		ios = { "Icon.png", "Icon-*dpi.png", },
 		android = { "Icon.png", "Icon-??.png", "Icon-???.png", "LaunchScreen.storyboardc", },
 	},
