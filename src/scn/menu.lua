@@ -6,7 +6,6 @@ local scene = composer.newScene()
 function scene:create(event)
 	obj = {}
 	Object.createMenu(obj)
-	
 end
 
 function scene:show(event)
