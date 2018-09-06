@@ -1,11 +1,10 @@
 local composer = require "composer"
-local Object = require "scr.obj"
+local Object = require "Scripts.scr_obj"
 
 local scene = composer.newScene()
 
 function scene:create(event)
-	obj = {}
-	Object.createMenu(obj)
+	Object.createAddMenu()
 end
 
 function scene:show(event)

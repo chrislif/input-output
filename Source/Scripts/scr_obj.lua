@@ -1,5 +1,5 @@
 local widget = require "widget"
-local Event = require "scr.event"
+local Event = require "Scripts.scr_event"
 
 Object = {}
 
@@ -61,12 +61,52 @@ local function createMessageText()
 	obj.messageText = display.newText(textOptions)
 end
 
-function Object.createMenu()
+local function createAddButton()
+	local buttonOptions = {
+		x = display.contentWidth/2,
+		y = display.contentHeight/3,
+		label = "Add New Item",
+		labelAlign = center,
+		labelColor = {default = {0,0,0}, over = {0,1,0}},
+		shape = "roundedRect",
+		onEvent = Event.gotoAdd
+	}
+	obj.clearButton = widget.newButton(buttonOptions)
+end
+
+local function createDatabaseButton()
+	local buttonOptions = {
+		x = display.contentWidth/2,
+		y = display.contentHeight*(2/3),
+		label = "Database",
+		labelAlign = center,
+		labelColor = {default = {0,0,0}, over = {0,1,0}},
+		shape = "roundedRect",
+		onEvent = Event.gotoDatabase
+	}
+	obj.clearButton = widget.newButton(buttonOptions)
+end
+
+function Object.createAddMenu()
 	createNameInput()
 	createDateInput()
 	createSubmitButton()
 	createClearButton()
 	createMessageText()
+end
+
+function Object.createMainMenu()
+	createAddButton()
+	createDatabaseButton()
+end
+
+function Object.startup()
+	print("--- Object Startup ---")
+	obj = {}
+	print("object table created")
+	
+	print("\n")
+	Event.startup()
 end
 
 return Object

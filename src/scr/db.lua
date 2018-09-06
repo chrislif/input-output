@@ -1,5 +1,0 @@
-Database = {}
-
-	
-
-return Database

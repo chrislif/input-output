@@ -1,4 +1,5 @@
-local Database = require "scr.db"
+local composer = require "composer"
+local Database = require "Scripts.scr_data"
 
 Event = {}
 
@@ -15,6 +16,21 @@ function Event.clearInput(event)
 		obj.dateBox.text = ""
 		obj.messageText.text = "Cleared"
 	end
+end
+
+function Event.gotoAdd(event)
+	composer.gotoScene("Scenes.mnu_add")
+end
+
+function Event.gotoDatabase(event)
+	
+end
+
+function Event.startup()
+	print("--- Event Startup ---")
+	
+	print("\n")
+	Database.startup()
 end
 
 return Event
