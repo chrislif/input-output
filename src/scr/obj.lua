@@ -3,7 +3,7 @@ local Event = require "scr.event"
 
 Object = {}
 
-local function createNameInput(obj)
+local function createNameInput()
 	obj.nameBox = native.newTextField(display.contentWidth/2, display.contentHeight/4, display.contentWidth, 50)
 	local textOptions = {
 		x = display.contentWidth/4 - 20,
@@ -14,7 +14,7 @@ local function createNameInput(obj)
 	obj.nameText = display.newText(textOptions)
 end
 
-local function createDateInput(obj) 
+local function createDateInput() 
 	obj.dateBox = native.newTextField(display.contentWidth/2, display.contentHeight/2, display.contentWidth, 50)
 	local textOptions = {
 		x = display.contentWidth/4 - 20,
@@ -25,7 +25,7 @@ local function createDateInput(obj)
 	obj.dateText = display.newText(textOptions)
 end
 
-local function createSubmitButton(obj)
+local function createSubmitButton()
 	local buttonOptions = {
 		x = display.contentWidth/2,
 		y = display.contentHeight/2 + 100,
@@ -38,7 +38,7 @@ local function createSubmitButton(obj)
 	obj.submitButton = widget.newButton(buttonOptions)
 end
 
-local function createClearButton(obj)
+local function createClearButton()
 	local buttonOptions = {
 		x = display.contentWidth/2,
 		y = display.contentHeight/2 + 175,
@@ -51,11 +51,22 @@ local function createClearButton(obj)
 	obj.clearButton = widget.newButton(buttonOptions)
 end
 
-function Object.createMenu(obj)
-	createNameInput(obj)
-	createDateInput(obj)
-	createSubmitButton(obj)
-	createClearButton(obj)
+local function createMessageText()
+	local textOptions = {
+		x = display.contentWidth/2,
+		y = display.contentHeight,
+		text = "Message",
+		align = center,
+	}
+	obj.messageText = display.newText(textOptions)
+end
+
+function Object.createMenu()
+	createNameInput()
+	createDateInput()
+	createSubmitButton()
+	createClearButton()
+	createMessageText()
 end
 
 return Object
