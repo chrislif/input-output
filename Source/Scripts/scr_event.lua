@@ -18,12 +18,16 @@ function Event.clearInput(event)
 	end
 end
 
-function Event.gotoAdd(event)
-	composer.gotoScene("Scenes.mnu_add")
+function Event.gotoManage(event)
+	composer.gotoScene("Scenes.mnu_manage")
 end
 
 function Event.gotoDatabase(event)
-	
+	composer.gotoScene("Scenes.mnu_battle")
+end
+
+function Event.gotoBack(event)
+	composer.gotoScene("Scenes.mnu_main")
 end
 
 function Event.startup()

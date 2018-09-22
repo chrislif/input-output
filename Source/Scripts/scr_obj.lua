@@ -4,7 +4,7 @@ local Event = require "Scripts.scr_event"
 Object = {}
 
 local function createNameInput()
-	obj.nameBox = native.newTextField(display.contentWidth/2, display.contentHeight/4, display.contentWidth, 50)
+	txt.nameBox = native.newTextField(display.contentWidth/2, display.contentHeight/4, display.contentWidth, 50)
 	local textOptions = {
 		x = display.contentWidth/4 - 20,
 		y = display.contentHeight/4 - 40,
@@ -12,10 +12,12 @@ local function createNameInput()
 		align = center,
 	}
 	obj.nameText = display.newText(textOptions)
+	scene.view:insert(txt.nameBox)
+	scene.view:insert(obj.nameText)
 end
 
 local function createDateInput() 
-	obj.dateBox = native.newTextField(display.contentWidth/2, display.contentHeight/2, display.contentWidth, 50)
+	txt.dateBox = native.newTextField(display.contentWidth/2, display.contentHeight/2, display.contentWidth, 50)
 	local textOptions = {
 		x = display.contentWidth/4 - 20,
 		y = display.contentHeight/2 - 40,
@@ -23,6 +25,8 @@ local function createDateInput()
 		align = center,
 	}
 	obj.dateText = display.newText(textOptions)
+	scene.view:insert(txt.dateBox)
+	scene.view:insert(obj.dateText)
 end
 
 local function createSubmitButton()
@@ -36,6 +40,7 @@ local function createSubmitButton()
 		onEvent = Event.submitInput
 	}
 	obj.submitButton = widget.newButton(buttonOptions)
+	scene.view:insert(obj.submitButton)
 end
 
 local function createClearButton()
@@ -49,6 +54,7 @@ local function createClearButton()
 		onEvent = Event.clearInput
 	}
 	obj.clearButton = widget.newButton(buttonOptions)
+	scene.view:insert(obj.clearButton)
 end
 
 local function createMessageText()
@@ -59,50 +65,79 @@ local function createMessageText()
 		align = center,
 	}
 	obj.messageText = display.newText(textOptions)
+	scene.view:insert(obj.messageText)
 end
 
-local function createAddButton()
+local function createManageButton()
 	local buttonOptions = {
 		x = display.contentWidth/2,
 		y = display.contentHeight/3,
-		label = "Add New Item",
+		label = "Manage Character",
 		labelAlign = center,
 		labelColor = {default = {0,0,0}, over = {0,1,0}},
 		shape = "roundedRect",
-		onEvent = Event.gotoAdd
+		onEvent = Event.gotoManage
 	}
 	obj.clearButton = widget.newButton(buttonOptions)
+	scene.view:insert(obj.clearButton)
 end
 
-local function createDatabaseButton()
+local function createBattleButton()
 	local buttonOptions = {
 		x = display.contentWidth/2,
 		y = display.contentHeight*(2/3),
-		label = "Database",
+		label = "Start Battle",
 		labelAlign = center,
-		labelColor = {default = {0,0,0}, over = {0,1,0}},
+		labelColor = {default = {0, 0, 0}, over = {0, 1, 0}},
 		shape = "roundedRect",
 		onEvent = Event.gotoDatabase
 	}
-	obj.clearButton = widget.newButton(buttonOptions)
+	obj.battleButton = widget.newButton(buttonOptions)
+	scene.view:insert(obj.battleButton)
 end
 
-function Object.createAddMenu()
+local function createBackButton()
+	local buttonWidth = 50
+	local buttonHeight = 50
+	
+	local buttonOptions = {
+	x = display.contentWidth - buttonWidth,
+	y = 0,
+	label = "Back",
+	labelAlign = center,
+	labelColor = {default = {0, 0, 0}, over = {0, 1, 0}},
+	shape = "roundedRect",
+	width = buttonWidth,
+	height = buttonHeight,
+	onEvent = Event.gotoBack
+	}
+	
+	obj.backButton = widget.newButton(buttonOptions)
+	scene.view:insert(obj.backButton)
+end
+
+function Object.createBattleMenu()
+	createBackButton()
+end
+
+function Object.createManageMenu()
 	createNameInput()
 	createDateInput()
 	createSubmitButton()
 	createClearButton()
 	createMessageText()
+	createBackButton()
 end
 
 function Object.createMainMenu()
-	createAddButton()
-	createDatabaseButton()
+	createManageButton()
+	createBattleButton()
 end
 
 function Object.startup()
 	print("--- Object Startup ---")
 	obj = {}
+	txt = {}
 	print("object table created")
 	
 	print("\n")
