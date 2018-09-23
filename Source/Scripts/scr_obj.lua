@@ -4,28 +4,45 @@ local Event = require "Scripts.scr_event"
 Object = {}
 
 local function createNameInput()
-	txt.nameBox = native.newTextField(display.contentWidth/2, display.contentHeight/4, display.contentWidth, 50)
+	local boxOptions = {
+		x = display.contentCenterX,
+		y = display.contentHeight/4,
+		width = 250,
+		height = 50,
+		fontSize = 18
+	}
+	obj.nameBox = widget.newTextField(boxOptions)
+	scene.view:insert(obj.nameBox)
+	
 	local textOptions = {
 		x = display.contentWidth/4 - 20,
 		y = display.contentHeight/4 - 40,
 		text = "Name",
-		align = center,
+		align = center
 	}
 	obj.nameText = display.newText(textOptions)
-	scene.view:insert(txt.nameBox)
 	scene.view:insert(obj.nameText)
 end
 
 local function createDateInput() 
-	txt.dateBox = native.newTextField(display.contentWidth/2, display.contentHeight/2, display.contentWidth, 50)
+	local boxOptions = {
+		x = display.contentCenterX,
+		y = display.contentCenterY,
+		width = 250,
+		height = 50,
+		text = "Hello World!",
+		fontSize = 18
+	}
+	obj.dateBox = widget.newTextField(boxOptions)
+	scene.view:insert(obj.dateBox)
+	
 	local textOptions = {
 		x = display.contentWidth/4 - 20,
 		y = display.contentHeight/2 - 40,
 		text = "Date",
-		align = center,
+		align = center
 	}
 	obj.dateText = display.newText(textOptions)
-	scene.view:insert(txt.dateBox)
 	scene.view:insert(obj.dateText)
 end
 
@@ -62,7 +79,7 @@ local function createMessageText()
 		x = display.contentWidth/2,
 		y = display.contentHeight,
 		text = "Message",
-		align = center,
+		align = center
 	}
 	obj.messageText = display.newText(textOptions)
 	scene.view:insert(obj.messageText)
@@ -137,7 +154,6 @@ end
 function Object.startup()
 	print("--- Object Startup ---")
 	obj = {}
-	txt = {}
 	print("object table created")
 	
 	print("\n")

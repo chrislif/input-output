@@ -5,6 +5,7 @@
 -----------------------------------------------------------------------------------------
 local composer = require "composer"
 local Object = require "Scripts.scr_obj"
+local TextField = require "Scripts.scr_txtfield"
 
 local function startup()
 	print("----- Program Startup -----")

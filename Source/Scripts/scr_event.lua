@@ -12,8 +12,8 @@ end
 
 function Event.clearInput(event)
 	if ("ended" == event.phase) then
-		obj.nameBox.text = ""
-		obj.dateBox.text = ""
+		obj.nameBox.textField.text = ""
+		obj.dateBox.textField.text = ""
 		obj.messageText.text = "Cleared"
 	end
 end

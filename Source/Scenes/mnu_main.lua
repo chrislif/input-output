@@ -5,7 +5,6 @@ scene = composer.newScene()
 
 function scene:create(event)
 	Object.createMainMenu()
-	
 end
 
 function scene:show(event)
