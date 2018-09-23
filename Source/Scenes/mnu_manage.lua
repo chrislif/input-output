@@ -12,7 +12,12 @@ function scene:show(event)
 end
 
 function scene:hide(event)
-	
+	if obj.nameBox ~= nil then
+		obj.nameBox:removeSelf()
+	end
+	if obj.dateBox ~= nil then
+		obj.dateBox:removeSelf()
+	end
 end
 
 scene:addEventListener("create", scene)

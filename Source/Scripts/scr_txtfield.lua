@@ -62,12 +62,5 @@ function widget.newTextField(options)
 	field.textField.font = native.newFont(opt.font)
 	field.textField.size = opt.fontSize * deviceScale
 	
-	function field:finalize(event)
-		event.target.textField:removeSelf()
-		print("destroy")
-	end
-	
-	field:addEventListener("finalize", field)
-	
 	return field
 end
